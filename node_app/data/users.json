@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "first_name": "Bob",
+            "last_name": "Bob",
+            "email": "",
+            "username": "",
+            "password": "vagine",
+            "id": 1
+        },
+        {
+            "first_name": "Bob",
+            "last_name": "Bob",
+            "email": "B",
+            "username": "Bobs",
+            "password": "vagine",
+            "id": 2
+        },
+        {
+            "first_name": "Ethan",
+            "email": "ethanvwilliams@hotmail.com",
+            "username": "Eth",
+            "password": "vagine",
+            "id": 3
+        }
+    ]
+}

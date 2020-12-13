@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="toggles">
+            <div class="left">
+                <div class="inner">
+                    Create an Account
+                    <div class="button">Sign Up</div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    Have an Account?
+                    <div class="button">Sign In</div>
+                </div>
+            </div>
+        </div>
+        <div class="content right">
+            <div class="content-view">
+                <div class="title">Sign In</div>
+                <input id="nameInput" type="text" placeholder="Username / Email Address" />
+                <input id="passwordInput" type="password" placeholder="Password" />
+                <div onclick="login()" class="main-button">Login</div>
+                <div class="error" id="loginError"></div>
+            </div>
+            <div class="content-view hide" id="signup">
+                <div class="title">Sign Up</div>
+                <div class="inputs">
+                    <input type="text" id="firstNameInput" class="half" placeholder="First Name*" />
+                    <input type="text" id="secondNameInput" class="half" placeholder="Last Name*" />
+                    <input type="text" id="usernameInput" placeholder="Username*" />
+                    <input type="text" id="emailInput" placeholder="Email*" />
+                    <input type="text" id="password" placeholder="Password*" />
+                </div>
+                <div onclick="register()" class="main-button">Register</div>
+                <div class="error" id="signupError"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

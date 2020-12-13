@@ -1,0 +1,196 @@
+html, body{
+    font-family: sans-serif;
+}
+
+
+.card-img-top{
+    object-fit: cover;
+    object-position: top;
+    height: 150px;
+}
+
+.marvelCard{
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    background: #d6e8f5;
+    opacity: 50%;
+    transition: transform 300ms;
+}
+
+.marvelCard.active{
+    opacity: 50%;
+}
+.marvelCard:hover{
+    transform: scale(1.05);
+    opacity: 100%;
+}
+
+
+.marvelCardShow{
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    background: #d6e8f5;
+}
+
+
+.card-stat{
+    width:49%;
+    display: inline-block;
+    text-align: center;
+}
+
+.card-stats{
+    padding-bottom: 20px;
+}
+
+#top{
+    padding: 50px;
+    flex-wrap: wrap;
+    display: flex;
+   
+}
+
+.card-title {
+    padding: 10px 20px
+}
+
+.card-title > .title-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-title > .title-height {
+        color: grey;
+}
+
+.card-title > .title-weight {
+    color: grey;
+}
+
+#topOfBoard{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 450px;
+}
+/* 
+#playersCards{
+    padding: 10px;
+    flex-wrap: nowrap;
+    display: flex;
+    overflow-x: scroll;
+} */
+
+
+
+#playerPickedCard{
+    margin-right: auto;
+}
+
+#vsArea{
+    
+    margin-right: auto;
+    
+    
+}
+
+
+.bottomOfBoard {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 450px;
+    display: flex;
+}
+
+.top-of-board-tile{
+    position: absolute;
+    top:10px;
+    bottom:0;
+    box-sizing: border-box;
+    width: 33vw;
+
+}
+.top-of-board-tile:nth-child(1){
+    left:0;
+    right: 66vw;
+}
+.top-of-board-tile:nth-child(2){
+    left:33vw;
+    right: 33vw;
+    
+    text-align: center;
+
+}
+.top-of-board-tile:nth-child(3){
+    right:0;
+    left: 66vw;
+
+
+    
+}
+.tile-title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.stat-title{
+      font-size: 20px;
+      text-align: center;
+}
+
+.stat-compare{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.messege{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.stat-picked{
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pick-card.active{
+    margin-top:50px;
+    text-align: center;
+    font-weight:bold;
+    font-size:30px;
+    visibility: visible;
+    
+}
+
+.pick-card{
+    visibility: hidden;
+    background: #c13b3c;
+    color: #e7e8de;
+    display: inline-block;
+    padding: 2px;
+    letter-spacing: -3px;
+    padding-right: 5px;
+    text-transform: uppercase;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+/* 
+*{
+    border: 1px solid red;
+}  */
+
+
+
+
