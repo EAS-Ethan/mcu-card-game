@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     // what is game object missing?
 
     if (!user_id || !max_rounds) {
-        res.json({ error: "please BLAH BLAH BLAH" })//that errors good i like it!
+        return res.json({ error: "please BLAH BLAH BLAH" })//that errors good i like it!
     }
 
     let { games } = JSON.parse(fs.readFileSync('data/games.json'))
@@ -16,10 +16,17 @@ module.exports = (req, res) => {
     // convert all the elements in the array from cards {} to their ids
     cards = cards.map(card => card.id)
 
+    let currentId = 0
 
 
     // so this works for the first person
+    for (game in games) {
+        if (games[game].id > currentId) {
+            currentId = games[game].id
+        }
+    }
 
+    //this randomizes cards
     for (var i = cards.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = cards[i];
@@ -27,10 +34,11 @@ module.exports = (req, res) => {
         cards[j] = temp;
     }
 
+
     let player_deck = cards.splice(0, 5)
 
     let newGame = {
-        "id": ,
+        "id": currentId + 1,
         "user_id": user_id,
         "max_rounds": max_rounds,
         "players": [
@@ -39,7 +47,12 @@ module.exports = (req, res) => {
                 "deck": player_deck
             }
         ],
-        "rounds": [],
+        "plays": [{
+            "1": 7,
+            "8": 23,
+            "stat": "",
+            winner: 1
+        }],
         "full_deck": cards,
         "status": "looking for an opponent"
     }

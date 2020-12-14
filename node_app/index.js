@@ -11,6 +11,12 @@ const user = require('./routes/user.js')
 const postGames = require('./routes/postGames.js')
 const getGames = require('./routes/getGames.js')
 const putGames = require('./routes/putGames.js')
+const joinGame = require('./routes/joinGame.js')
+const getGame = require('./routes/getGame.js')
+const pickCard = require('./routes/pickCard.js')
+
+
+
 
 app.use(express.json())
 
@@ -27,6 +33,12 @@ app.get('/api/user', user)
 app.get('/api/games', getGames)
 app.post('/api/games', postGames)
 app.put('/api/games', putGames)
+app.get('/api/joinGame', joinGame)
+app.get('/api/getGame', getGame)
+app.get('/api/pickCard', pickCard)
+
+
+
 
 
 
