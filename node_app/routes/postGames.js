@@ -3,11 +3,11 @@ const fs = require('fs')
 module.exports = (req, res) => {
 
     // maybe check to see if the data you need was sent
-    let { user_id, max_rounds } = req.body
+    let { user_id } = req.body
 
     // what is game object missing?
 
-    if (!user_id || !max_rounds) {
+    if (!user_id) {
         return res.json({ error: "please BLAH BLAH BLAH" })//that errors good i like it!
     }
 
@@ -40,19 +40,13 @@ module.exports = (req, res) => {
     let newGame = {
         "id": currentId + 1,
         "user_id": user_id,
-        "max_rounds": max_rounds,
         "players": [
             {
                 "user_id": user_id,
                 "deck": player_deck
             }
         ],
-        "plays": [{
-            "1": 7,
-            "8": 23,
-            "stat": "",
-            winner: 1
-        }],
+        "plays": [{}],
         "full_deck": cards,
         "status": "looking for an opponent"
     }
