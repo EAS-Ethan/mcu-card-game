@@ -1,18 +1,22 @@
 const fs = require('fs')
+const { readFile, writeFile } = require('../helpers/data.js')
 
 module.exports = (req, res) => {
 
     // maybe check to see if the data you need was sent
     let { user_id } = req.body
 
-    // what is game object missing?
-
     if (!user_id) {
-        return res.json({ error: "please BLAH BLAH BLAH" })//that errors good i like it!
+        return res.json({ error: "please BLAH BLAH BLAH" })
     }
 
-    let { games } = JSON.parse(fs.readFileSync('data/games.json'))
+    // lets fix these 2 lines
+    //is that right 
+    let games = readFile('games')
     let { cards } = JSON.parse(fs.readFileSync('data/cards.json'));
+
+
+
     // convert all the elements in the array from cards {} to their ids
     cards = cards.map(card => card.id)
 
@@ -33,7 +37,6 @@ module.exports = (req, res) => {
         cards[i] = cards[j];
         cards[j] = temp;
     }
-
 
     let player_deck = cards.splice(0, 5)
 
