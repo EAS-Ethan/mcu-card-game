@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             label 'kaniko'
-            yamlFile 'slave/podspec.yaml'
+            yamlFile 'podspec.yaml'
         }
     }
     stages {
