@@ -11,7 +11,7 @@ const login = async () => {
     }
 
     localStorage.setItem("userid", data.id);
-    window.location.pathname = '/home.html'
+    window.location.pathname = '/'
 
 }
 
@@ -31,7 +31,7 @@ const register = async () => {
     }
 
     localStorage.setItem("userid", data.id);
-    window.location.pathname = '/home.html'
+    window.location.pathname = '/'
 
 }
 
