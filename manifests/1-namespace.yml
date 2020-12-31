@@ -2,7 +2,7 @@ kind: Namespace
 apiVersion: v1
 metadata:
   annotations:
-    field.cattle.io/projectId: $PROJECT_ID
-  name: $NAMESPACE
+    field.cattle.io/projectId: c-h7csv:p-g56s2
+  name: mcu-game
   labels:
-    name: $NAMESPACE
+    name: mcu-game
