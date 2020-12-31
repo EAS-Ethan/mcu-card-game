@@ -1,0 +1,8 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  annotations:
+    field.cattle.io/projectId: $PROJECT_ID
+  name: $NAMESPACE
+  labels:
+    name: $NAMESPACE

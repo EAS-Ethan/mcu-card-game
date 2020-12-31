@@ -20,4 +20,18 @@ pipeline {
             }
         }
     }
+    stage('K8s staging deploy') {
+        environment {
+            NAMESPACE = "mcu-game"
+            PROJECT_ID = "c-h7csv:p-g56s2"
+        }
+        steps {
+            container(name: 'kube') {
+                // Deploy to k8s cluster
+                script {
+                    kubernetesDeploy configs: "manifests/*.yml", kubeconfigId: 'kubeconfig'
+                }
+            }
+        }
+    }
 }
