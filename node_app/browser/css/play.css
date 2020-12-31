@@ -76,7 +76,7 @@
   
   /* Style the back side */
   .flip-card-back {
-    background-color: rgb(207, 234, 238);
+    background-color: #e6e9dd;
     color: black;
     transform: rotateY(180deg);
     
@@ -137,4 +137,29 @@
   #top {
       
     background: #2d2d2d;
+  }
+
+
+  .winner-screen{
+    position: fixed;
+    z-index: 909999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #3a3a3a;
+    color: white;
+    display: none;
+  }
+  .winner-screen.active{
+    display: block;
+  }
+
+  .endResultContainer{
+    margin: 20px auto;
+    background: #e7e8de;
+    padding: 10px;
+    border-radius: 15px;
+    width: 600px;
+
   }

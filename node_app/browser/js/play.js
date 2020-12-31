@@ -6,9 +6,11 @@ if (userId == null) {
 }
 
 
+
 const play = async () => {
 
     data = await get('/api/play?')
+
 
     for (let i in data.playerCards) {
         let card = document.createElement("div")
@@ -26,6 +28,9 @@ const play = async () => {
     document.getElementById("cpuCard").appendChild(card)
 }
 play()
+
+
+
 
 const active = (e) => {
     if (selectedCardIndex != -1) {

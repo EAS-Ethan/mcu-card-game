@@ -1,12 +1,24 @@
-const fs = require('fs')
+const { readFile } = require('../helpers/data.js')
 
 module.exports = (req, res) => {
-    let { games } = JSON.parse(fs.readFileSync('data/games.json'))
-    let filteredGames = []
-    for (let game in games) {
-        if (games[game].players.length != 2) {
-            filteredGames.push(games[game])
+    let games = readFile("./data/games.json")
+    let available = []
+    let joined = []
+
+    const { user_id } = req.query
+
+    for (let id in games) {
+        for (let player in games[id].players) {
+            if (games[id].players[player].user_id == user_id && !games[id].winner) {
+                games[id].id = +id
+                joined.push(games[id])
+            }
+        }
+        if (games[id].players.length != 2) {
+            games[id].id = +id
+            available.push(games[id])
         }
     }
-    res.json(filteredGames)
+    res.json({ available, joined })
 }
+

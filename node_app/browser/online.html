@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/play.css">
+</head>
+
+<body>
+
+    <div class="winner-screen" id="winnerScreen">
+
+
+    </div>
+    <div class="top-container">
+        <div class="top-of-board-tile">
+            <div id="playerACard" class="tile-title">Your Card</div>
+
+            <div id="pickedCardArea" class="selected-card"></div>
+
+
+        </div>
+        <div class="top-of-board-tile">
+            <div class="tile-title">Vs</div>
+            <div class="stats-selector" id="statsSelector">
+                <div class="stat-title">Choose Stat</div>
+                <!-- <div class="button" onclick="selectStat('height')">Height</div>
+                <div class="button" onclick="selectStat('weight')">Weight</div> -->
+                <div class="button" onclick="selectStat('strength')">STR</div>
+                <div class="button" onclick="selectStat('agility')">AG</div>
+                <div class="button" onclick="selectStat('fighting_skill')">FGT</div>
+                <div class="button" onclick="selectStat('intelligence')">ITL</div>
+                <div class="button" onclick="selectStat('power')">PWR</div>
+                <div class="button" onclick="selectStat('technology')">TEC</div>
+            </div>
+            <div class="round-result" id="resultDiv">
+
+            </div>
+            <div id="pickACard" class="pick-card active">Pick A Card</div>
+
+
+
+
+        </div>
+        <div class="top-of-board-tile">
+            <div class="tile-title">Opponents Card</div>
+            <div id="cpuCard" class="selected-card"></div>
+
+        </div>
+    </div>
+    <div class="bottom-container" id="playersCards">
+
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/onlinePlay.js"></script>
+</body>
+
+</html>

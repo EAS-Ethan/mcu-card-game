@@ -1,27 +1,35 @@
-const fs = require('fs')
+const { readFile } = require('../helpers/data.js')
 
-// api/cards?ids=[6,2,3,9,5,32,7]
 module.exports = (req, res) => {
     let { ids, all } = req.query
-    let { cards: allCards } = JSON.parse(fs.readFileSync('data/cards.json'));
-    if (all) {
-        return res.json(allCards)
+    let allCards = readFile('./data/cards.json')
+    let idArray
+    if (ids) {
+        idArray = JSON.parse(ids)
     }
-
     let cards = []
 
-    let idArray = JSON.parse(ids)
+    // return all cards
+    if (all) {
+        for (let card_id in allCards) {
+            allCards[card_id].id = card_id
+            cards.push(allCards[card_id])
+        }
+        return res.json(cards)
+    }
 
-    for (i in idArray) {
-        for (j in allCards) {
-            if (idArray[i] == allCards[j].id) {
-                cards.push(allCards[j])
+    // return cards for the ids provided
+    for (let i in idArray) {
+        for (let card_id in allCards) {
+            if (idArray[i] == card_id) {
+                allCards[card_id].id = card_id
+                cards.push(allCards[card_id])
+
             }
         }
-
-
-
     }
+
+    // localhost/api/cards?ids=[1,2,3,4]
 
     res.json(cards)
 }

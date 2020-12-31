@@ -1,32 +1,36 @@
-const fs = require('fs')
 const { readFile, writeFile } = require('../helpers/data.js')
 
 module.exports = (req, res) => {
 
     // maybe check to see if the data you need was sent
-    let { user_id } = req.body
+    let { user_id, name } = req.body
 
-    if (!user_id) {
-        return res.json({ error: "please BLAH BLAH BLAH" })
+    if (!user_id || !name) {
+        return res.json({ error: "please provide user_id and name" })
     }
 
     // lets fix these 2 lines
     //is that right 
-    let games = readFile('games')
-    let { cards } = JSON.parse(fs.readFileSync('data/cards.json'));
+    let games = readFile('./data/games.json')
+    let cardsObject = readFile('./data/cards.json')
 
+    let cards = []
 
+    for (let card_id in cardsObject) {
+        cardsObject[card_id].id = card_id
+        cards.push(cardsObject[card_id])
+    }
 
     // convert all the elements in the array from cards {} to their ids
     cards = cards.map(card => card.id)
 
     let currentId = 0
 
-
     // so this works for the first person
-    for (game in games) {
-        if (games[game].id > currentId) {
-            currentId = games[game].id
+    for (id in games) {
+
+        if (+id > currentId) {
+            currentId = +id
         }
     }
 
@@ -41,7 +45,7 @@ module.exports = (req, res) => {
     let player_deck = cards.splice(0, 5)
 
     let newGame = {
-        "id": currentId + 1,
+        "name": name,
         "user_id": user_id,
         "players": [
             {
@@ -54,9 +58,11 @@ module.exports = (req, res) => {
         "status": "looking for an opponent"
     }
 
-    games.push(newGame)
+    games[+currentId + 1] = newGame
 
-    fs.writeFileSync('data/games.json', JSON.stringify({ games }, null, 4))
+    writeFile('./data/games.json', games)
+
+    newGame.id = +currentId + 1
 
     res.json(newGame)
 }

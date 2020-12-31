@@ -9,6 +9,8 @@ const main = async () => {
     const data = await get('/api/user?id=' + userId)
     console.log(data)
     $('#usernameContainer').innerText = data.first_name
+
+
 }
 main()
 

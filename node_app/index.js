@@ -14,6 +14,7 @@ const putGames = require('./routes/putGames.js')
 const joinGame = require('./routes/joinGame.js')
 const getGame = require('./routes/getGame.js')
 const pickCard = require('./routes/pickCard.js')
+const pickStat = require('./routes/pickStat.js')
 
 
 
@@ -36,6 +37,7 @@ app.put('/api/games', putGames)
 app.get('/api/joinGame', joinGame)
 app.get('/api/getGame', getGame)
 app.get('/api/pickCard', pickCard)
+app.get('/api/pickStat', pickStat)
 
 
 
