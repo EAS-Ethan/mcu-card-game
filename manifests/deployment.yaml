@@ -2,37 +2,37 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: mcu-game
-  name: app
+  name: node_app
 spec:
   ports:
     - name: "app"
       port: 80
       targetPort: 80
   selector:
-    app: app
+    app: node_app
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: mcu-game
   labels:
-    app: app
-  name: app
+    app: node_app
+  name: node_app
 spec:
   replicas: 1
   strategy: {}
   selector:
     matchLabels:
-      app: app
+      app: node_app
   template:
     metadata:
       labels:
         build_number: $BUILD_NUMBER
-        app: app
+        app: node_app
     spec:
       containers:
         - image: registry.easlab.co.uk/ethan/mcu-game:latest
-          name: app
+          name: node_app
           imagePullPolicy: Always
           resources: {}
           stdin: true
