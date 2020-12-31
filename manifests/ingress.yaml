@@ -6,10 +6,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/ingress.provider: nginx
   name: node-app
-  namespace: mcu-game
+  namespace: $APPNAME
 spec:
   rules:
-  - host: mcu-game.easlab.co.uk
+  - host: $APPNAME.easlab.co.uk
     http:
       paths:
       - backend:
@@ -17,5 +17,5 @@ spec:
           servicePort: 80
   tls:
   - hosts:
-    - mcu-game.easlab.co.uk
+    - $APPNAME.easlab.co.uk
     secretName: mcu-tls-cert

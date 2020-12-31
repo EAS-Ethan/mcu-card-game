@@ -14,12 +14,15 @@ pipeline {
                 container(name: 'kaniko', shell: '/busybox/sh') {
                     script{
                             sh '''#!/busybox/sh
-                            /kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --cache=false --destination=registry.easlab.co.uk/ethan/mcu-game'''
+                            /kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --cache=false --destination=registry.easlab.co.uk/ethan/$APPNAME'''
                     }
                 }
             }
         }
         stage('K8s staging deploy') {
+            environment {
+                APPNAME = "mcu-game"
+            }
             steps {
                 container(name: 'kube') {
                     // Deploy to k8s cluster
