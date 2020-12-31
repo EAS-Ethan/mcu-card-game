@@ -28,7 +28,7 @@ pipeline {
                 container(name: 'kube') {
                     // Deploy to k8s cluster
                     script {
-                        kubernetesDeploy configs: "manifests/*.yml", kubeconfigId: 'e786a663-3cf9-4d09-ba13-31c70fc11b87'
+                        kubernetesDeploy configs: "manifests/*.yml", kubeconfigId: 'kubeconfig'
                     }
                 }
             }
