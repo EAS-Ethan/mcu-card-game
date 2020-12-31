@@ -1,0 +1,8 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  annotations:
+    field.cattle.io/projectId: c-h7csv:p-g56s2
+  name: $APPNAME
+  labels:
+    name: $APPNAME
