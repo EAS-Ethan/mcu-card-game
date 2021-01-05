@@ -1,5 +1,5 @@
 FROM node:alpine
-COPY ./node_app /app
+COPY ./ /app
 WORKDIR /app
 RUN npm install
 CMD ["node", "index.js"]

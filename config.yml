@@ -1,0 +1,20 @@
+namespace: ethan-mcu
+projectId: c-h7csv:p-g56s2
+resources:
+  - name: node
+    build:
+      destination: registry.easlab.co.uk/ethan/mcu:node
+      dockerfile: node_app/Dockerfile
+      context: node_app
+    deploy:
+      - type: deployment
+        imagePullSecret: registry
+        name: node-app
+      - type: registry-secret
+        dockerconfigjson: eyJhdXRocyI6eyJyZWdpc3RyeS5lYXNsYWIuY28udWsiOnsiYXV0aCI6IllXUnRhVzQ2VW1WdVpXZGhaR1V4T0RjaCIsInBhc3N3b3JkIjoiUmVuZWdhZGUxODchIiwidXNlcm5hbWUiOiJhZG1pbiJ9fX0=
+        name: registry
+      - type: ingress
+        hostname: ethan-mcu.easlab.co.uk
+        port: 80
+        name: node-app-ingress
+        target: node-app
